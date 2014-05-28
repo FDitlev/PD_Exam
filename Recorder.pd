@@ -1,4 +1,4 @@
-#N canvas -8 -8 1680 968 10;
+#N canvas 0 0 1680 968 10;
 #X obj 68 46 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 225 51 adc~;
@@ -77,7 +77,7 @@ it into digital;
 #X obj 544 557 readsf~;
 #X obj 543 630 delwrite~ vibrato 50;
 #X obj 936 412 vsl 15 130 0 13 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 10200 1;
+-1 -1 6500 1;
 #X obj 740 545 *~ 1;
 #X obj 741 587 +~ 2;
 #X obj 943 589 * 2;
@@ -86,7 +86,7 @@ it into digital;
 #X obj 742 618 vd~ vibrato;
 #X obj 743 671 dac~;
 #X obj 690 339 vsl 15 130 0 13 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2600 1;
+-1 -1 2000 1;
 #X floatatom 641 470 5 0 0 0 - - -;
 #X obj 724 497 osc~ 2;
 #X text 832 346 PLAY Vibrato Effect;
@@ -104,9 +104,9 @@ it into digital;
 #X obj 337 511 phasor~;
 #X obj 102 532 *~;
 #X obj 329 430 hsl 128 15 1 35 0 0 empty empty empty -2 -8 0 10 -258113
--1 -1 0 1;
+-1 -1 1300 1;
 #X obj 180 612 tabwrite~ Tremolo;
-#X obj 384 537 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 384 537 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 401 537 Graph;
 #X obj 314 581 metro 75;
@@ -115,9 +115,9 @@ it into digital;
 #X text 56 419 PLAY Tremolo Effect;
 #X obj 523 342 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 463 538 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 463 538 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 447 503 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 447 503 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 1194 180 cnv 15 350 600 empty empty empty 20 12 0 14 -233017
 -66577 0;
@@ -164,10 +164,10 @@ it into digital;
 #X coords 0 1 299 -1 200 140 1;
 #X restore 1271 262 graph;
 #X obj 298 612 tabwrite~ Normal;
-#X msg 147 453 open JackSparrow.wav \, start;
 #X msg 703 815 open JackLol.wav \, start;
 #X obj 662 854 writesf~;
 #X msg 762 841 stop;
+#X msg 147 453 open stand_by_me.wav \, start;
 #X connect 0 0 19 0;
 #X connect 1 0 23 0;
 #X connect 4 0 3 0;
@@ -191,7 +191,7 @@ it into digital;
 #X connect 33 0 39 0;
 #X connect 33 0 34 0;
 #X connect 33 0 34 1;
-#X connect 33 0 72 0;
+#X connect 33 0 71 0;
 #X connect 35 0 36 0;
 #X connect 35 0 37 0;
 #X connect 37 0 28 0;
@@ -205,20 +205,20 @@ it into digital;
 #X connect 50 0 52 0;
 #X connect 50 0 46 0;
 #X connect 50 0 46 1;
-#X connect 50 0 72 0;
+#X connect 50 0 71 0;
 #X connect 51 0 48 0;
 #X connect 53 0 55 0;
 #X connect 53 0 56 0;
 #X connect 55 0 69 0;
 #X connect 56 0 52 0;
+#X connect 59 0 73 0;
 #X connect 59 0 70 0;
-#X connect 59 0 71 0;
 #X connect 60 0 55 0;
 #X connect 60 0 40 0;
 #X connect 61 0 60 0;
 #X connect 61 0 53 0;
 #X connect 66 0 25 0;
 #X connect 67 0 25 0;
-#X connect 70 0 45 0;
-#X connect 71 0 72 0;
-#X connect 73 0 72 0;
+#X connect 70 0 71 0;
+#X connect 72 0 71 0;
+#X connect 73 0 45 0;
