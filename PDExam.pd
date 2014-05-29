@@ -1,0 +1,129 @@
+#N canvas 0 0 942 962 10;
+#X obj 1 -3 cnv 15 2000 1000 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#X obj 268 12 cnv 15 250 200 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 10 11 cnv 15 250 100 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 681 465 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 560 628 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 317 607 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 326 478 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 539 455 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 459 552 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 146 501 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 177 417 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 84 9 Example Recorder;
+#N canvas 596 326 774 516 ExRecord 0;
+#X obj 155 141 adc~;
+#X obj 153 281 writesf~;
+#X msg 187 249 stop;
+#X text 217 281 Writes to file \, until stopped;
+#X text 225 249 stop;
+#X text 191 180 Records analogue sound from microphone \, and converts
+it into digital;
+#X text 185 148 RECORDING;
+#X obj 154 187 *~ 3;
+#X msg 180 224 open PDExamRecord.wav \, start;
+#X obj 462 209 bng 15 250 50 0 empty rec_rec empty 17 7 0 10 -262144
+-1 -1;
+#X obj 462 234 bng 15 250 50 0 empty stop empty 17 7 0 10 -262144 -1
+-1;
+#X text 480 207 Receive Rec from main;
+#X text 483 232 Receive Stop from main;
+#X connect 0 0 7 0;
+#X connect 2 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
+#X connect 10 0 2 0;
+#X restore 102 76 pd ExRecord;
+#X obj 11 61 bng 50 250 50 0 rec_rec Nop empty 17 7 0 10 -258113 -258113
+-258113;
+#X obj 210 61 bng 50 250 50 0 stop Nop empty 17 7 0 10 -33289 -1 -1
+;
+#X text 8 45 Start Record;
+#X text 94 89 Recorder Patch;
+#X obj 11 116 cnv 15 125 100 empty empty empty 20 12 0 14 -4032 -66577
+0;
+#X obj 43 142 bng 50 250 50 0 play_normal Nop empty 17 7 0 10 -4034
+-1 -1;
+#X text 35 116 Play example No filter;
+#N canvas 315 198 450 300 PlayNorm 0;
+#X obj 40 119 readsf~;
+#X obj 40 173 dac~;
+#X msg 59 98 stop;
+#X text 96 120 Read file;
+#X text 78 174 Digital to analogue conversion (play file);
+#X text 86 20 PLAY Normal-mode;
+#X msg 40 77 open PDExamRecord.wav \, start;
+#X obj 40 51 bng 15 250 50 0 empty play_normal empty 17 7 0 10 -262144
+-1 -1;
+#X obj 224 83 bng 15 250 50 0 empty stop empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;
+#X connect 8 0 2 0;
+#X restore 35 199 pd PlayNorm;
+#X text 208 45 Stop All;
+#X obj 360 134 bng 50 250 50 0 play_vibrato Nop empty 17 7 0 10 -204800
+-1 -1;
+#X text 352 117 Play Vibrato;
+#X obj 330 53 vsl 20 128 0 15 0 0 empty empty empty 0 -9 0 10 -4034
+-1 -1 0 1;
+#X obj 430 53 vsl 20 128 0 15 0 0 empty empty empty 0 -9 0 10 -257985
+-1 -1 0 1;
+#N canvas 740 69 450 300 Vibrato 1;
+#X obj 17 312 delwrite~ vibrato 50;
+#X obj 410 94 vsl 15 130 0 13 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 214 227 *~ 1;
+#X obj 215 269 +~ 2;
+#X obj 417 271 * 2;
+#X obj 504 328 +;
+#X floatatom 505 362 5 0 0 0 - - -;
+#X obj 216 300 vd~ vibrato;
+#X obj 217 353 dac~;
+#X obj 164 21 vsl 15 130 0 13 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 115 152 5 0 0 0 - - -;
+#X obj 198 179 osc~ 2;
+#X text 306 28 PLAY Vibrato Effect;
+#X obj 20 415 tabwrite~ Vibrato;
+#X obj 20 381 metro 75;
+#X text 33 357 Graph;
+#X text 190 58 Speed (Frequency of the Low Frequency Oscilator);
+#X text 451 132 Depth (length of delay);
+#X obj 136 536 writesf~;
+#X msg 236 523 stop;
+#X msg 177 497 open Stop.wav \, start;
+#X connect 1 0 4 0;
+#X connect 1 0 5 1;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 4 0 3 1;
+#X connect 5 0 6 0;
+#X connect 7 0 13 0;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 7 0 18 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 11 0 2 0;
+#X connect 14 0 13 0;
+#X connect 19 0 18 0;
+#X connect 20 0 18 0;
+#X restore 370 191 pd Vibrato;
