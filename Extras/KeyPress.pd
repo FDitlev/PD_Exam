@@ -1,0 +1,31 @@
+#N canvas 0 0 942 962 10;
+#X obj 151 155 key;
+#X floatatom 222 162 5 0 0 0 - - -;
+#X obj 58 220 mtof;
+#X obj 316 301 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 303 350 1;
+#X obj 333 473 pack 0 50;
+#X floatatom 402 449 5 0 0 0 - - -;
+#X obj 302 544 line~;
+#X obj 70 479 osc~;
+#X obj 76 584 *~;
+#X obj 83 631 dac~;
+#X floatatom 89 252 5 0 0 0 - - -;
+#X text 90 223 Converted to frequency;
+#X obj 70 374 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 8.1758
+8.1758;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 0 0 2 0;
+#X connect 2 0 11 0;
+#X connect 2 0 13 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 9 1;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 13 0 8 0;
